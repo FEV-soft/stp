@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Clients
+{% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped table-hover">
+    <thead class="thead-light">
+    <tr>
+
+       {% for key, cli in clients %}
+
+            {% if loop.first  %}
+                 {% for key2, cli2 in cli %}
+                <th scope="col">{{ key2 }}</th>
+                {% endfor %}
+            {% endif %}
+       {% endfor %}
+
+    </tr>
+    </thead>
+
+    <tbody>
+
+    {% for key, cli in clients %}
+
+    {% for key2, cli2 in cli %}
+        {% if loop.first  %}
+        <tr>
+        {% endif %}
+        <td >{{ cli2 }}</td>
+        {% if loop.last  %}
+            </tr>
+        {% endif %}
+    {% endfor %}
+
+    {% endfor %}
+
+    </tbody>
+    </table>
+
+{% endblock %}

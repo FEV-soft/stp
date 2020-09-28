@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Orders
+{% endblock %}
+
+{% block body %}
+
+    <table class="table table-striped table-hover table-centered">
+        <thead class="thead-light">
+        <tr>
+
+            {% for key, order in orders %}
+
+                {% if loop.first  %}
+                    {% for key2, ord in order %}
+                        <th scope="col">{{ key2 }}</th>
+                    {% endfor %}
+                {% endif %}
+            {% endfor %}
+
+        </tr>
+        </thead>
+
+        <tbody>
+
+        {% for key, order in orders %}
+
+            {% for key2, ord in order %}
+                {% if loop.first  %}
+                    <tr>
+                {% endif %}
+                <td align="center">{{ ord }}</td>
+                {% if loop.last  %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}
